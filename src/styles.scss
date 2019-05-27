@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+
+$color-blue: #0f5dab;
+$color-orange: #e95123;
+$color-green: #107177;
+
+$color-black: #000000;
+$color-white: #ffffff;
+$color-gray: #949aa0;
+
+$font-family: 'Arial', sans-serif;
+
+$border_color: $color-green;
+$image_bg: 'http://farm9.static.flickr.com/8535/8700600857_5ba981d073.jpg';
+$margin_top: 10em;
+$blur: 4px;
+
+body {
+    color: inherit;
+    font-family: $font-family;
+    position: relative;
+}
+
+.wancho {
+    max-width: 1200px;
+    width: 94%;
+    margin: auto;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+ul, ol {
+    margin: 0;  padding: 0;
+
+    li { list-style: none; }
+}
+
+input, button, textarea {
+    &:focus {
+        outline: none;
+    }
+}
+
+figure {
+    margin: 0;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 10px;
+    background-color: $color-blue;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: $color-white;
+}
+
+/** STYLE 1 */
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    box-shadow: inset 0 0 6px rgba($color-black, .3);
+    background-color: $color-black;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba($color-black, .3);
+    border-radius: 10px;
+    background-color: $color-white;
+}

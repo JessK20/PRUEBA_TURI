@@ -1,0 +1,77 @@
+<section class="search">
+  <div class="wancho">
+    <figcaption class="search__container">
+      <div class="search__container-item">
+
+        
+        <h4>Filtros de búsqueda</h4>
+
+        <div class="search__container-item_select" *ngIf="activities && regions && categories">
+          <div class="select">
+            <select  [(ngModel)]="filters.activity_id" (change)="getTours()">
+              <option [value]="''" selected="true" disabled="disabled">Seleccione una actividad</option>
+              <option [value]="activity.id" *ngFor="let activity of activities"> ‌{{ activity.name }}</option>
+            </select>
+          </div>
+          
+          <div class="select">
+            <select class="" [(ngModel)]="filters.region_id" (change)="getTours()">
+              <option [value]="''" selected="true" disabled="disabled">Seleccione una region</option>
+              <option [value]="region.id" *ngFor="let region of regions">{{ region.name }}</option>
+            </select>
+          </div>
+          
+          <div class="select">
+            <select class="" [(ngModel)]="filters.package_category_id" (change)="getTours()">
+              <option [value]="''" selected="true" disabled="disabled">Seleccione una categoría</option>
+              <option [value]="category.id" *ngFor="let category of categories">{{ category.name }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <div class="search__container-item_images">
+
+        <div class="search__container-item_images-flex" *ngFor="let tour of tours">
+            <a href="{{ tour.url }}" class="panel flex-col border-0 shadow-sm h-100 mb-0">
+              <figure>
+                <img alt="{{ tour.name }}" class="card-img-top loaded" src="{{ tour.principal_photo }}" data-was-processed="true">
+                
+                <span class="subtitle">Tour</span>
+              </figure>
+
+              <div class="search__container-item_images-box">
+                <h6 >{{ tour.name }} - {{ tour.city_names }}</h6>
+                <div>
+                  <strong class="tgris">Actividades: </strong> 
+                  <p *ngFor="let activity of tour.activities; let last = last"> {{ activity.name }}<i *ngIf="!last">, </i></p>
+                </div>
+                
+                <div class="price">
+                  
+                  <div class="price__number">
+                    <b > {{ tour.days_and_nights }} </b>
+                    
+                    <div class="pen" >
+                      <small >Desde</small>
+                      <em class="unit-currency">S/.</em>
+                      <em class="number-currency">{{ tour.price }}</em>
+                    </div>
+
+                    <div class="usd" style="display:none">
+                      <span class="unit-currency">USD</span>
+                      <span class="number-currency">{{ tour.dolar_price }}</span>
+                    </div>
+                  </div>
+                </div>
+
+               
+              </div>
+            </a>
+        </div>
+
+      </div>
+    </figcaption>
+  </div>
+</section>
+

@@ -1,0 +1,254 @@
+@import "../../styles";
+
+.search {
+	font-size: 12px;
+	padding: 16px 0;
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+
+		&-item {
+			width: 25%;
+
+			h4 {
+				font-size: 15px;
+				font-weight: bold;
+				padding-bottom: 4px;
+				margin-bottom: 16px;
+				position: relative;
+				&::before{
+					content: '';
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					background: $color-orange;
+					width: 14px;
+					height: 4px;
+				}
+			}
+
+			&:last-child {
+				width: 75%;
+			}
+
+			&_select {
+
+				/* Reset Select */
+				select {
+					-webkit-appearance: none;
+					-moz-appearance: none;
+					-ms-appearance: none;
+					appearance: none;
+					outline: 0;
+					box-shadow: none;
+					border: 0 !important;
+					background: rgba($color-green, .65);
+					background-image: none;
+					text-transform: uppercase;
+					font-size: 11px;
+					padding: 4px 8px 4px 16px;
+					option {
+						background: rgba($color-gray, .35);
+						padding: 8px 4px;
+						min-height: 40px;
+						line-height: 2;
+					}
+				}
+
+				/* Remove IE arrow */
+				select::-ms-expand {
+					display: none;
+				}
+
+				/* Custom Select */
+				.select {
+					position: relative;
+					display: flex;
+					width: 258px;
+					// height: 3em;
+					line-height: 3;
+					background: #2c3e50;
+					overflow: hidden;
+					border-radius: 4px;
+					margin-bottom: 24px;
+				}
+				select {
+					flex: 1;
+					color: $color-white;
+					cursor: pointer;
+				}
+
+				/* Arrow */
+				.select::after {
+					content: '\♥';
+					position: absolute;
+					top: 0;
+					right: 0;
+					padding: 1.5px 12px;
+					border: 1px solid $color-green;
+					background: $color-white;
+					cursor: pointer;
+					pointer-events: none;
+					-webkit-transition: .25s all ease;
+					-o-transition: .25s all ease;
+					transition: .25s all ease;
+				}
+
+				/* Transition */
+				.select:hover::after {
+					color: $color-orange;
+				}
+  
+			}
+
+			&_images {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				flex-wrap: wrap;
+				margin-left: 32px;
+				padding-top: 38px;
+
+				a {
+					display: block;
+					border: 1px solid rgba($color-gray, .45) !important;
+				}
+				&-flex {
+					width: 30.33%;
+					// padding: 0 8px;
+					margin-bottom: 16px;
+					// border: 1px solid $color-orange;
+					box-sizing: border-box;
+
+					span.subtitle {
+						position: absolute;
+						left: 0;
+						bottom: 0;
+						background: $color-white;
+						color: $color-blue;					
+						padding: 0 8px 0 4px;
+						text-transform: uppercase;
+					}
+
+					figure {
+						height: 193px;
+
+						img {
+							height: 100%;
+						}
+					}
+
+					a {
+						text-decoration: none;
+
+						&:hover {
+							h6 {
+								text-decoration: underline;
+							}
+							
+						}
+						@media screen and (min-width: 1025px) {
+							&:hover {
+								background: $color-blue;
+								h6 {
+									color: $color-white;
+								}
+								strong, b, em, small,  p {
+									color: $color-white;
+								}
+								
+							}
+						}
+					}
+				}
+
+				&-box {
+					box-sizing: border-box;
+					padding: 8px 8px 12px 8px;
+					h6 {
+						font-size: 14px;
+						color: $color-blue;
+						text-transform: uppercase;
+						font-weight: bold;
+						padding-bottom: 8px;
+						
+					}
+
+					strong, p {
+						color: $color-black;
+					}
+
+					strong { display: block;}
+
+					p { display: inline-block;	}
+
+					.price {
+						padding-top: 16px;
+
+						small {
+							text-align: right;
+							font-size: 12px;
+							color: $color-orange;
+							display: block;
+						}
+
+						&__number{
+							display: flex;
+							justify-content: space-between;
+							align-items: flex-end;
+
+							b {
+								color: $color-gray;
+								font-size: 14px;
+							}
+
+							.pen {
+								font-weight: bold;
+								font-size: 17px;		
+								color: $color-orange;
+								em {
+									font-style: normal !important;
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+
+		@media screen and (max-width: 1024px){
+			flex-direction: column;
+
+			&-item {
+				width: 100%;
+				&_select {
+					display: flex;
+					justify-content: space-around;
+				}
+
+				&_images {
+					margin-left: 0;
+
+					&-box {
+						strong {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+
+		@media screen and (max-width: 768px){
+			&-item {
+				&_images {
+					&-flex {
+						width: 48.33%;
+					}
+				}
+			}
+		}
+	}
+}
